@@ -18,14 +18,14 @@ text: req.body.text,
 createdAt: new Date(),
 });
 res.status(201).send
-})
+});
 
 //delete posts
 router.delete('/:id', async (req,res) => {
    const posts = await loadPostsCollection();
    await posts.deleteOne({_id: new mongodb.ObjectId(req.params.id)})
    res.status(200).send
-})
+});
 
 
 async function loadPostsCollection() {
